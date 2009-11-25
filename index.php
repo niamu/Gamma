@@ -38,6 +38,7 @@ get_header(); ?>
 		</div>
 
 		<div class="entry width2">
+			<?php add_filter('the_content','custom_more_link'); ?>
 			<?php the_content(); ?>
 		</div>
 		
