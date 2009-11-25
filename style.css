@@ -7,11 +7,11 @@ Author: Brendon Walsh
 Author URI: http://niamu.com/
 */
 
-@import url("/css/baseline.reset.css");
-@import url("/css/baseline.base.css");
-@import url("/css/baseline.form.css");
-@import url("/css/baseline.type.css");
-@import url("/css/baseline.grid.css");
+@import url("css/baseline.reset.css");
+@import url("css/baseline.base.css");
+@import url("css/baseline.form.css");
+@import url("css/baseline.type.css");
+@import url("css/baseline.grid.css");
 
 body {
 	min-width:1131px;
