@@ -50,4 +50,15 @@
 	</div>
 </div>
 </div>
+
+<div class="navigation">
+		<p>
+			<span class="prev"><?php previous_post_link('%link', '&larr; PREV'); ?></span>
+			<span class="next"><?php next_post_link('%link', 'NEXT &rarr;'); ?></span>
+			
+			<span class="prev"><?php next_posts_link('&larr; PREV') ?></span>
+			<span class="next"><?php previous_posts_link('NEXT &rarr;'); ?></span>
+		</p>
+</div>
+
 <div class="top"></div>

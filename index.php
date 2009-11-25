@@ -7,8 +7,17 @@
 get_header(); ?>
 
 <?php if (have_posts()) : ?>
-
 	<?php while (have_posts()) : the_post(); ?>
+		
+		<div class="navigation">
+				<p>
+					<span class="prev"><?php previous_post_link('%link', '&larr; PREV'); ?></span>
+					<span class="next"><?php next_post_link('%link', 'NEXT &rarr;'); ?></span>
+
+					<span class="prev"><?php next_posts_link('&larr; PREV') ?></span>
+					<span class="next"><?php previous_posts_link('NEXT &rarr;'); ?></span>
+				</p>
+		</div>
 
 		<div id="feature">
 			<div class="wrapper">
@@ -18,20 +27,13 @@ get_header(); ?>
 				if($image!=""){
 					echo "<img src='" . get_bloginfo ( 'url' ) . "/images/$id/feature.jpg' alt='Feature Image' />";
 				}else{
-					echo "<img src='" . get_bloginfo ( 'url' ) . "/images/404.jpg' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
+					echo "<img src='" . get_bloginfo ( 'template_url' ) . "/images/404.jpg' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
 				}
 				?>
 			</div>
 		</div>
 
 <div class="bottom"></div>
-
-<div class="navigation">
-		<p>
-			<span class="prev"><?php next_posts_link('&larr; PREV') ?></span>
-			<span class="next"><?php previous_posts_link('NEXT &rarr;', '', 'yes'); ?></span>
-		</p>
-</div>
 
 <div id="content">
 	<div class="wrapper unitx7">
