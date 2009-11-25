@@ -16,7 +16,7 @@ get_header(); ?>
 			if($image!=""){
 				echo "<img src='" . get_bloginfo ( 'url' ) . "/images/$id/feature.jpg' alt='Feature Image' />";
 			}else{
-				echo "<img src='" . get_bloginfo ( 'url' ) . "/images/404.jpg' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
+				echo "<img src='" . get_bloginfo ( 'template_url' ) . "/images/404.jpg' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
 			}
 			?>
 		</div>
