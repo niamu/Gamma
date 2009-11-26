@@ -51,6 +51,7 @@
 </div>
 </div>
 
+<?php if (!is_search()) { ?>
 <div class="navigation">
 		<p>
 			<span class="prev"><?php previous_post_link('%link', '&larr; PREV'); ?></span>
@@ -60,5 +61,6 @@
 			<span class="next"><?php previous_posts_link('NEXT &rarr;'); ?></span>
 		</p>
 </div>
+<? } ?>
 
 <div class="top"></div>
