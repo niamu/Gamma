@@ -14,7 +14,7 @@ Author URI: http://niamu.com/
 @import url("css/baseline.grid.css");
 
 html {
-	background:url('images/feature-texture.jpg') center center repeat;
+	background:url('images/feature-texture.jpg') top left repeat;
 }
 
 body {
