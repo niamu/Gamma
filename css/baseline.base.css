@@ -24,8 +24,7 @@ abbr[title], acronym[title], dfn[title]			{ border-bottom: 1px dotted black; cur
 sup, sub										{ line-height: 0; }
 sup												{ vertical-align: super; }
 sub												{ vertical-align: sub; }
-blockquote										{ padding-left: 3em; }
-hr												{ border: none; background: #ddd; width: 100%; }
+blockquote p									{ left:-14px; padding-left:10px; width:100%; border-left:5px solid #DDD;}
 ul, ol											{ margin-left: 3em; }
 ul												{ list-style: disc outside; }
 ol												{ list-style: decimal outside; }

@@ -38,4 +38,4 @@ legend								{ position: relative; top: 5px; }
 input, textarea						{ color:#666; font-size: 12px; }
 table								{ font-size: 13px; }
 caption								{ font-size: 13px; line-height: 18px; position: relative; }
-hr									{ position: relative; height: 4px; margin: 0; }
+hr									{ position: relative; top:-8px; height: 2px; background:#DDD; color:#DDD; border:none; margin: 0; }
