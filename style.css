@@ -285,6 +285,7 @@ h2 a.more-link:hover {
 	width:100%;
 	border-left:5px solid #530004;
 	color:#DDD;
+	-webkit-transition: color 0.25s linear;
 }
 
 #content p.spoiler:hover {
