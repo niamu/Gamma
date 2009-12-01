@@ -52,22 +52,28 @@ $options = array (
 
 	array(	"id" => "open"),
 	
+	array(	"name" => "Site Logo",
+	"desc" => "Optional logo image (267 x 143px).",
+	"id" => $shortname."_logo",
+	"std" => get_bloginfo('template_url')."/images/logo.png",
+	"type" => "text"),
+	
 	array(	"name" => "404 Image",
 	"desc" => "Feature image for 404 pages.",
 	"id" => $shortname."_404",
-	"std" => "images/404.jpg",
+	"std" => get_bloginfo('template_url')."/images/404.jpg",
 	"type" => "text"),
 	
 	array(	"name" => "Search Image",
 	"desc" => "Feature image for search pages.",
 	"id" => $shortname."_search",
-	"std" => "images/404.jpg",
+	"std" => get_bloginfo('template_url')."/images/404.jpg",
 	"type" => "text"),
 	
 	array(	"name" => "Missing Image",
 	"desc" => "Feature image for posts with no image.",
 	"id" => $shortname."_missing",
-	"std" => "images/404.jpg",
+	"std" => get_bloginfo('template_url')."/images/404.jpg",
 	"type" => "text"),
 
 	array(	"name" => "More-Link Text",
@@ -90,10 +96,16 @@ $options = array (
 
 	array(	"id" => "open"),
 	
+	array(	"name" => "Author Name",
+	"desc" => "Author name for header.",
+	"id" => $shortname."_name",
+	"std" => get_bloginfo('name'),
+	"type" => "text"),
+	
 	array(	"name" => "Avatar",
-	"desc" => "Avatar author URL",
+	"desc" => "Avatar author URL (80 x 80px)",
 	"id" => $shortname."_avatar",
-	"std" => "images/avatar.jpg",
+	"std" => get_bloginfo('template_url')."/images/avatar.jpg",
 	"type" => "text"),
 	
 	array(	"name" => "Twitter",
@@ -217,6 +229,14 @@ function mytheme_add_admin() {
 				<table width="100%" cellspacing="2" cellpadding="5" class="editform form-table">
 					
 					<?php break;
+					case $shortname."_name":
+					?>
+
+					<tr valign="top"><th width="33%" scope="row"><?php echo $value['name']; ?>:</th><td>
+					<input style="width:400px;" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if ( get_settings( $value['id'] ) != "") { echo stripslashes(htmlspecialchars(get_settings( $value['id'] ), ENT_QUOTES)); } else { echo $value['std']; } ?>" /></td>
+					<td class="bm_tdsmall"><p style="color:#999; margin:0; font-size:11px;"><?php echo $value['desc']; ?></p></td></tr>
+					
+					<?php break;
 					case $shortname."_avatar":
 					?>
 
@@ -286,6 +306,14 @@ function mytheme_add_admin() {
 
 					<tr valign="top"><th width="33%" scope="row"><?php echo $value['name']; ?>:</th><td>
 					<input style="width:400px;" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if ( get_settings( $value['id'] ) != "") { echo stripslashes(htmlspecialchars(get_settings( $value['id'] ), ENT_QUOTES)); } else { echo $value['std']; } ?>" /></td>
+					<td class="bm_tdsmall"><p style="color:#999; margin:0; font-size:11px;"><?php echo $value['desc']; ?></p></td></tr>
+					
+					<?php break;
+					case $shortname."_logo":
+					?>
+
+					<tr valign="top"><th width="33%" scope="row"><?php echo $value['name']; ?>:</th><td>
+					<input style="width:400px;" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if ( get_settings( $value['id'] ) != "") { echo get_settings( $value['id'] ); } else { echo $value['std']; } ?>" /></td>
 					<td class="bm_tdsmall"><p style="color:#999; margin:0; font-size:11px;"><?php echo $value['desc']; ?></p></td></tr>
 					
 					<?php break;

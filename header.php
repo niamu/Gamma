@@ -14,7 +14,14 @@
 
 <title><?php wp_title('&bull;', true, 'right'); ?><?php bloginfo('name'); ?></title>
 
+<!--[if gte IE 7]><!-->
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
+<!--<![endif]-->
+
+<!--[if lte IE 7]><!-->
+
+<!--<![endif]-->
+
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php wp_head(); ?>
@@ -31,11 +38,11 @@
 <div id="header">
 <div class="wrapper unitx7">
 	<div id="logo">
-		<h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+		<h1><a href="<?php bloginfo('url'); ?>" <?php if($gamma_logo) {echo "style=\"background:url('$gamma_logo') no-repeat;\"";}?>><?php bloginfo('name'); ?></a></h1>
 	</div>
 	<div id="author">
-		<img src="<?php echo $gamma_avatar; ?>" class="avatar" alt="Brendon Walsh" />
-		<strong>Brendon Walsh</strong>
+		<img src="<?php echo $gamma_avatar; ?>" class="avatar" alt="<?php echo $gamma_name; ?>" />
+		<strong><?php echo $gamma_name; ?></strong>
 		<div class="social">
 			<ul>
 				<?php if ($gamma_twitter) { 
