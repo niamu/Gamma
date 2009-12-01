@@ -6,6 +6,13 @@
 
 get_header(); ?>
 
+<?php
+	global $options;
+	foreach ($options as $value) {
+	    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; } else { $$value['id'] = get_settings( $value['id'] ); }
+	}
+?>
+
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	
 	<div id="feature">
@@ -16,7 +23,7 @@ get_header(); ?>
 			if($image!=""){
 				echo "<img src='" . get_bloginfo ( 'url' ) . "/images/$id/feature.jpg' alt='Feature Image' />";
 			}else{
-				echo "<img src='" . get_bloginfo ( 'template_url' ) . "/images/404.jpg' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
+				echo "<img src='" . $gamma_missing . "' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
 			}
 			?>
 		</div>
@@ -35,9 +42,6 @@ get_header(); ?>
 			</div>
 		</div>
 		</div>
-			
-			<div id="flashbake">
-			</div>
 
 			<div class="entry width2">
 				<?php the_content(); ?>
@@ -48,7 +52,29 @@ get_header(); ?>
 	<?php endwhile; ?>	
 	<?php else: ?>
 
-		<p>Sorry, no posts matched your criteria.</p>
+		<div id="feature">
+			<div class="wrapper">
+				<?php 
+				$image = get_post_meta(get_the_ID(),'Feature', true); 
+				$id = get_the_ID();
+				if($image!=""){
+					echo "<img src='" . get_bloginfo ( 'url' ) . "/images/$id/feature.jpg' alt='Feature Image' />";
+				}else{
+					echo "<img src='" . $gamma_missing . "' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
+				}
+				?>
+			</div>
+		</div>
+		
+		<div class="bottom"></div>
+		
+		<div id="content">
+			<div class="wrapper unitx7">
+				<h2>Sorry, no content here. <br />How about a nice game of chess?</h2>
+			</div>
+		</div>
+		
+		<div class="top"></div>
 
 <?php endif; ?>
 
