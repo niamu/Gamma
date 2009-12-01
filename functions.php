@@ -11,13 +11,10 @@ function custom_more_link($content){
 	    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; } else { $$value['id'] = get_settings( $value['id'] ); }
 	}
 	
-	// get the customized link pattern
 	$pattern='</div></div></div><div class="top"></div><div id="respond"><div class="wrapper unitx7"><h2>'.stripslashes($gamma_morelink).' <a href="%permalink%%anchor%" class="%class%">&rarr;</a></h2>';
-
-	// search pattern for old wp generated more link structure        
+     
 	$search_pattern='=<a href\="(.*)(#more-[\d]+)" class\="([a-zA-Z\-\ ]+)">(.*)<\/a>=';
 
-	// search old more link and get the important parts
 	$matches=array();
 	if(FALSE !== preg_match($search_pattern,$content,$matches)){
 		$url = $matches[1];
@@ -25,19 +22,15 @@ function custom_more_link($content){
 		$class=$matches[3];
 		$linktext=$matches[4];
 
-		// replace tags in new-morelink-pattern with found parts if neccessary
 		$pattern=str_replace(
 			array('%permalink%','%anchor%','%class%','%linktext%'),
 			array($matches[1],$matches[2],$matches[3],$matches[4]),
 			$pattern);
 
-		// replace old more link with new link pattern    
 		$content=preg_replace($search_pattern,$pattern,$content);
 
-		// done
 		return($content);
 	}else{
-		// no more-link found, do nothing and return $content
 		return($content);
 	}
 }
