@@ -69,6 +69,7 @@
 				<?php if ($gamma_roboto) { 
 					echo '<li><a href="http://robo.to/'.$gamma_roboto.'"><img src="'.get_bloginfo('template_directory').'/images/roboto.png" alt="Roboto" /></a></li>';
 				}?>
+				<?php if (!$gamma_robot && !$gamma_youtube && !$gamma_qik && !$gamma_facebook && !$gamma_digg && !$gamma_flickr && !$gamma_lastfm && !$gamma_twitter){echo "<li></li>";}?>
 			</ul>
 		</div>
 		
