@@ -17,9 +17,8 @@ get_header(); ?>
 	<div class="wrapper">
 		<?php 
 		$image = get_post_meta(get_the_ID(),'Feature', true); 
-		$id = get_the_ID();
 		if($image!=""){
-			echo "<img src='" . get_bloginfo ( 'url' ) . "/images/$id/feature.jpg' alt='Feature Image' />";
+			echo "<img src='$image' alt='Feature Image' />";
 		}else{
 			echo "<img src='" . $gamma_404 . "' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
 		}

@@ -16,7 +16,7 @@ get_header(); ?>
 		<small><?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></small>
 		</span>
 		
-		< hr />
+		<hr />
 		
 			<div class="entry">
 				<?php the_content(); ?>
