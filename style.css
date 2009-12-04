@@ -199,14 +199,19 @@ h2 a.more-link:hover {
 
 .navigation {
 	position:fixed;
-	z-index:2;
 	width:100%;
-	margin-top:350px;
+	margin-top:25%;
 }
 
 .navigation span a {
+	position:relative;
+	z-index:3;
 	color:#fff;
 	-webkit-transition: text-shadow 0.25s linear;
+	background:#000;
+	opacity:0.7;
+	filter: alpha(opacity = 70);
+	padding:10px;
 }
 
 .navigation span a:hover {
@@ -217,10 +222,6 @@ h2 a.more-link:hover {
 	position:absolute;
 	float:left;
 	left:0;
-	background:#000;
-	opacity:0.7;
-	filter: alpha(opacity = 70);
-	padding:10px;
 	-webkit-border-top-right-radius:10px;
 	-webkit-border-bottom-right-radius:10px;
 	-moz-border-radius-topright:10px;
@@ -231,10 +232,6 @@ h2 a.more-link:hover {
 	position:absolute;
 	float:right;
 	right:0;
-	background:#000;
-	opacity:0.7;
-	filter: alpha(opacity = 70);
-	padding:10px;
 	-webkit-border-top-left-radius:10px;
 	-webkit-border-bottom-left-radius:10px;
 	-moz-border-radius-topleft:10px;
@@ -318,18 +315,6 @@ h2 a.more-link:hover {
 	float:right;
 	font-size:2.5em;
 	color:#CCC;
-}
-
-.meta span.comments {
-	float:left;
-	margin-right:20px;
-	line-height:1.9em;
-	font-size:2em;
-	width:50px;
-}
-
-.meta span.comments a {
-	color:#666;
 }
 
 #content .entry {
