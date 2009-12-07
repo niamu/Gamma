@@ -48,7 +48,17 @@ return;
 
 	<?php else : // comments are closed ?>
 		<!-- If comments are closed. -->
-		<p class="nocomments">Comments are closed.</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="top"></div>
+			<div id="respond">
+				<div class="wrapper unitx7">
+					<h2>Comments are closed</h2>
+				</div>
+			</div>			
 
 	<?php endif; ?>
 <?php endif; ?>

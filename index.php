@@ -6,6 +6,13 @@
 
 get_header(); ?>
 
+<?php
+	global $options;
+	foreach ($options as $value) {
+	    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; } else { $$value['id'] = get_settings( $value['id'] ); }
+	}
+?>
+
 <?php if (have_posts()) : ?>
 	<?php while (have_posts()) : the_post(); ?>
 
@@ -13,11 +20,10 @@ get_header(); ?>
 			<div class="wrapper">
 				<?php 
 				$image = get_post_meta(get_the_ID(),'Feature', true); 
-				$id = get_the_ID();
 				if($image!=""){
-					echo "<img src='" . get_bloginfo ( 'url' ) . "/images/$id/feature.jpg' alt='Feature Image' />";
+					echo "<img src='$image' alt='Feature Image' />";
 				}else{
-					echo "<img src='" . get_bloginfo ( 'template_url' ) . "/images/404.jpg' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
+					echo "<img src='" . $gamma_missing . "' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
 				}
 				?>
 			</div>

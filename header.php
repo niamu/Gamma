@@ -14,31 +14,58 @@
 
 <title><?php wp_title('&bull;', true, 'right'); ?><?php bloginfo('name'); ?></title>
 
+<!--[if gte IE 7]><!-->
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
+<!--<![endif]-->
+
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	
+	<?php
+		global $options;
+		foreach ($options as $value) {
+		    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; } else { $$value['id'] = get_settings( $value['id'] ); }
+		}
+	?>
 
 <div id="header">
 <div class="wrapper unitx7">
 	<div id="logo">
-		<h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+		<h1><a href="<?php bloginfo('url'); ?>" <?php if($gamma_logo) {echo "style=\"background:url('$gamma_logo') no-repeat;\"";}?>><?php bloginfo('name'); ?></a></h1>
 	</div>
 	<div id="author">
-		<img src="<?php bloginfo('template_directory'); ?>/images/avatar.jpg" class="avatar" alt="Brendon Walsh" />
-		<strong>Brendon Walsh</strong>
+		<img src="<?php echo $gamma_avatar; ?>" class="avatar" alt="<?php echo $gamma_name; ?>" />
+		<strong><?php echo $gamma_name; ?></strong>
 		<div class="social">
 			<ul>
-				<li><a href="http://twitter.com/niamu"><img src="<?php bloginfo('template_directory'); ?>/images/twitter.png" alt="Twitter" /></a></li>
-				<li><a href="http://last.fm/user/niamu"><img src="<?php bloginfo('template_directory'); ?>/images/lastfm.png" alt="Last.fm" /></a></li>
-				<li><a href="http://www.flickr.com/photos/niamu/"><img src="<?php bloginfo('template_directory'); ?>/images/flickr.png" alt="Flickr" /></a></li>
-				<li><a href="http://digg.com/users/niamu"><img src="<?php bloginfo('template_directory'); ?>/images/digg.png" alt="Digg" /></a></li>
-				<li><a href="http://facebook.com/niamu"><img src="<?php bloginfo('template_directory'); ?>/images/facebook.png" alt="Facebook" /></a></li>
-				<li><a href="http://qik.com/niamu"><img src="<?php bloginfo('template_directory'); ?>/images/qik.png" alt="Qik" /></a></li>
-				<li><a href="http://youtube.com/user/reveri"><img src="<?php bloginfo('template_directory'); ?>/images/youtube.png" alt="Youtube" /></a></li>
-				<li><a href="http://robo.to/niamu"><img src="<?php bloginfo('template_directory'); ?>/images/roboto.png" alt="Roboto" /></a></li>
+				<?php if ($gamma_twitter) { 
+					echo '<li><a href="http://twitter.com/'.$gamma_twitter.'"><img src="'.get_bloginfo('template_directory').'/images/twitter.png" alt="Twitter" /></a></li>';
+				}?>
+				<?php if ($gamma_lastfm) { 
+					echo '<li><a href="http://last.fm/user/'.$gamma_lastfm.'"><img src="'.get_bloginfo('template_directory').'/images/lastfm.png" alt="Last.fm" /></a></li>';
+				}?>
+				<?php if ($gamma_flickr) { 
+					echo '<li><a href="http://flickr.com/photos/'.$gamma_flickr.'"><img src="'.get_bloginfo('template_directory').'/images/flickr.png" alt="Flickr" /></a></li>';
+				}?>
+				<?php if ($gamma_digg) { 
+					echo '<li><a href="http://digg.com/users/'.$gamma_digg.'"><img src="'.get_bloginfo('template_directory').'/images/digg.png" alt="Digg" /></a></li>';
+				}?>
+				<?php if ($gamma_facebook) { 
+					echo '<li><a href="http://facebook.com/'.$gamma_facebook.'"><img src="'.get_bloginfo('template_directory').'/images/facebook.png" alt="Facebook" /></a></li>';
+				}?>
+				<?php if ($gamma_qik) { 
+					echo '<li><a href="http://qik.com/'.$gamma_qik.'"><img src="'.get_bloginfo('template_directory').'/images/qik.png" alt="Qik" /></a></li>';
+				}?>
+				<?php if ($gamma_youtube) { 
+					echo '<li><a href="http://youtube.com/user/'.$gamma_youtube.'"><img src="'.get_bloginfo('template_directory').'/images/youtube.png" alt="YouTube" /></a></li>';
+				}?>
+				<?php if ($gamma_roboto) { 
+					echo '<li><a href="http://robo.to/'.$gamma_roboto.'"><img src="'.get_bloginfo('template_directory').'/images/roboto.png" alt="Roboto" /></a></li>';
+				}?>
+				<?php if (!$gamma_robot && !$gamma_youtube && !$gamma_qik && !$gamma_facebook && !$gamma_digg && !$gamma_flickr && !$gamma_lastfm && !$gamma_twitter){echo "<li></li>";}?>
 			</ul>
 		</div>
 		

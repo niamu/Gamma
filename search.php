@@ -6,15 +6,21 @@
 
 get_header(); ?>
 
+<?php
+	global $options;
+	foreach ($options as $value) {
+	    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; } else { $$value['id'] = get_settings( $value['id'] ); }
+	}
+?>
+
 <div id="feature">
 	<div class="wrapper">
 		<?php 
 		$image = get_post_meta(get_the_ID(),'Feature', true); 
-		$id = get_the_ID();
 		if($image!=""){
-			echo "<img src='" . get_bloginfo ( 'url' ) . "/images/$id/feature.jpg' alt='Feature Image' />";
+			echo "<img src='$image' alt='Feature Image' />";
 		}else{
-			echo "<img src='" . get_bloginfo ( 'url' ) . "/images/404.jpg' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
+			echo "<img src='" . $gamma_search . "' alt='Feature Image' /><p class='credit'>No image for this post.</p>";
 		}
 		?>
 	</div>
@@ -40,13 +46,18 @@ get_header(); ?>
 				<?php the_excerpt(); ?>
 			</div>
 
+
 	<?php endwhile; ?>	
 	<?php else: ?>
-
-		<h2>Sorry, no search results. <br />How about a nice game of chess?</h2>
+		
+			<div class="wrapper unitx7">
+				<h2>Sorry, no content here. <br />How about a nice game of chess?</h2>
+			</div>
 
 <?php endif; ?>
+
 </div>
 </div>
+<div class="top"></div>
 
 <?php get_footer(); ?>
