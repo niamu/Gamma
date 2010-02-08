@@ -4,37 +4,6 @@
 * @subpackage Default_Theme
 */
 
-function custom_more_link($content){
-	
-	global $options;
-	foreach ($options as $value) {
-	    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; } else { $$value['id'] = get_settings( $value['id'] ); }
-	}
-	
-	$pattern='</div></div></div><div class="top"></div><div id="respond"><div class="wrapper unitx7"><h2>'.stripslashes($gamma_morelink).' <a href="%permalink%%anchor%" class="%class%">&rarr;</a></h2>';
-     
-	$search_pattern='=<a href\="(.*)(#more-[\d]+)" class\="([a-zA-Z\-\ ]+)">(.*)<\/a>=';
-
-	$matches=array();
-	if(FALSE !== preg_match($search_pattern,$content,$matches)){
-		$url = $matches[1];
-		$anchor=$matches[2];
-		$class=$matches[3];
-		$linktext=$matches[4];
-
-		$pattern=str_replace(
-			array('%permalink%','%anchor%','%class%','%linktext%'),
-			array($matches[1],$matches[2],$matches[3],$matches[4]),
-			$pattern);
-
-		$content=preg_replace($search_pattern,$pattern,$content);
-
-		return($content);
-	}else{
-		return($content);
-	}
-}
-
 $shortname = "gamma";
 
 $options = array (

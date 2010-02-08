@@ -30,7 +30,7 @@ get_header(); ?>
 
 <div class="bottom"></div>
 
-<div id="content">
+<div class="content">
 	<div class="wrapper unitx7">
 
 		<div class="post-details">
@@ -67,13 +67,11 @@ get_header(); ?>
 		
 		<div class="bottom"></div>
 		
-		<div id="content">
+		<div class="content">
 			<div class="wrapper unitx7">
 				<h2>Sorry, no content here. <br />How about a nice game of chess?</h2>
 			</div>
 		</div>
-		
-		<div class="top"></div>
 
 <?php endif; ?>
 

@@ -76,10 +76,6 @@ return;
 
 		<h2>Have your say</h2>
 
-		<div class="cancel-comment-reply">
-			<small><?php cancel_comment_reply_link(); ?></small>
-		</div>
-
 		<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
 			<p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
 		<?php else : ?>
@@ -93,14 +89,14 @@ return;
 	<?php else : ?>
 
 	<div id="author-details" class="unitx2">
-		<label for="author" class="unitx2">Name <?php if ($req) echo "(required)"; ?><input type="text" name="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" /></label>
+		<label for="author" class="unitx2">Name <?php if ($req) echo "(required)"; ?><input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" /></label>
 		<label for="email" class="unitx2">Email (will not be published) <?php if ($req) echo "(required)"; ?><input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" /></label>
 		<label for="url" class="unitx2">Website<input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" /></label>
 	</div>
 		<?php endif; ?>
 
 	<div id="comment-textarea">
-		<label class="unitx4 multilinex7">Comment<textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></label>
+		<label class="unitx4 multilinex7">Comment<textarea name="comment" id="comment" rows="10" tabindex="4"></textarea></label>
 		<div id="markdown" class="unitx4">Comments support <a href="http://daringfireball.net/projects/markdown/">Markdown</a>.<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" /></div>
 	</div>
 			<?php comment_id_fields(); ?>

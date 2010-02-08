@@ -27,7 +27,7 @@ get_header(); ?>
 </div>
 
 <div class="bottom"></div>
-<div id="content">
+<div class="content">
 	<div class="wrapper unitx7">
 
 <?php query_posts($query_string . '&posts_per_page=-1'); if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -58,6 +58,5 @@ get_header(); ?>
 
 </div>
 </div>
-<div class="top"></div>
 
 <?php get_footer(); ?>

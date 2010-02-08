@@ -84,41 +84,41 @@ h2 a.more-link:hover {
 	opacity:0.7;
 }
 
-#header #author {
+#header #blog_author {
 	position:relative;
 	float:right;
 	margin-top:40px;
 	width:370px;
 }
 
-#header #author strong {
+#header #blog_author strong {
 	color:#666;
 	position:relative;
 	top:10px;
 	text-transform:uppercase;
 }
 
-#header #author img.avatar {
+#header #blog_author img.avatar {
 	float:left;
 	padding:2px;
 	margin-right:10px;
 	border:2px solid #DDD;
 }
 
-#header #author ul {
+#header #blog_author ul {
 	list-style-type:none;
 }
 
-#header #author ul li {
+#header #blog_author ul li {
 	float:left;
 	margin:0 1px;
 }
 
-#header #author ul li a {
+#header #blog_author ul li a {
 	opacity:0.7;
 }
 
-#header #author ul li a:hover {
+#header #blog_author ul li a:hover {
 	opacity:1;
 }
 
@@ -238,7 +238,7 @@ h2 a.more-link:hover {
 	-moz-border-radius-bottomleft:10px;
 }
 
-#content {
+.content {
 	position:relative;
 	float:left;
 	clear:both;
@@ -246,14 +246,14 @@ h2 a.more-link:hover {
 	background:#FFF;
 }
 
-#content .post-details h2 {
+.content .post-details h2 {
 	width:350px;
 	height:auto;
 	display:block;
 	float:left;
 }
 
-#content .post-details {
+.content .post-details {
 	position:relative;
 	float:left;
 	clear:both;
@@ -264,7 +264,7 @@ h2 a.more-link:hover {
 	padding:0;
 }
 
-#content .post-details .meta {
+.content .post-details .meta {
 	position:absolute;
 	float:right;
 	right:0;
@@ -273,7 +273,7 @@ h2 a.more-link:hover {
 	height:100%;
 }
 
-#content .post-details .meta div {
+.content .post-details .meta div {
 	position:absolute;
 	float:right;
 	right:0;
@@ -281,11 +281,11 @@ h2 a.more-link:hover {
 	bottom:0;
 }
 
-#content .wp-caption {
+.content .wp-caption {
 	position:relative;
 }
 
-#content .wp-caption-text {
+.content .wp-caption-text {
 	position:absolute;
 	top:20px;
 	right:20px;
@@ -298,7 +298,7 @@ h2 a.more-link:hover {
 	-moz-border-radius:5px;
 }
 
-#content p.spoiler {
+.content p.spoiler {
 	left:-14px;
 	padding-left:10px;
 	width:100%;
@@ -307,7 +307,7 @@ h2 a.more-link:hover {
 	-webkit-transition: color 0.25s linear;
 }
 
-#content p.spoiler:hover {
+.content p.spoiler:hover {
 	color:#888;
 }
 
@@ -317,19 +317,19 @@ h2 a.more-link:hover {
 	color:#CCC;
 }
 
-#content .entry {
+.content .entry {
 	float:right;
 }
 
-#content .entry p {
+.content .entry p {
 	z-index:1;
 }
 
-#content .entry ul {
+.content .entry ul {
 	list-style-type:square;
 }
 
-#content .entry h3 {
+.content .entry h3 {
 	position:absolute;
 	z-index:-1;
 	float:left;
@@ -340,30 +340,40 @@ h2 a.more-link:hover {
 	width:100%;
 }
 
-#content .entry img {
+.content .entry img {
 	max-width:480px;
 	padding:2px;
 	border:2px solid #DDD;
 }
 
-#content .entry .download img {
-    position:relative;
-    margin:0 50%;
-    left:-128px;
-	border:none;
-	width:256px;
+.content .entry img.swap-video:hover {
+	cursor:pointer;
+}
+
+.content .entry video {
+	padding:2px;
+	border:2px solid #DDD;
+}
+
+.download {
+    background:url('images/box.png') no-repeat center center;
+    height:230px;
 }
 
 .download p {
+    display:block;
     margin:0;
+}
+
+.download a {
+    display:block;
 }
 
 .download span.description {
     position:absolute;
-    top:120px;
-    margin:0 50%;
+    top:100px;
     width:150px;
-    left:-75px;
+    left:170px;
     text-align:center;
     background:#000;
 	padding:5px;
@@ -433,19 +443,22 @@ h2 a.more-link:hover {
 	float:right;
 }
 
-#respond {
+#respond, #footer {
 	position:relative;
 	float:left;
 	color:#333;
-	z-index:1;
+	text-shadow: 2px 2px 3px #FFF;
 	margin:-110px 0;
 	width:100%;
-	padding:0;
+	min-height:240px;
+    padding:0 0 20px 0;
+	background:url('images/gamma.png') top center no-repeat;
 }
 
-#respond .wrapper {
+#respond .wrapper, #footer .wrapper {
 	margin:50px auto 0 auto;
 	padding:0;
+	z-index:2;
 }
 
 #respond #author-details {
@@ -486,8 +499,38 @@ h2 a.more-link:hover {
 	float:left;
 }
 
-#respond h2 {
+#respond h2, #footer h2 {
 	color:#FFF;
 	text-shadow: 2px 2px 5px #333;
 	padding:20px 0;
+}
+
+#respond a {
+    color:#333;
+    font-weight:bold;
+}
+
+#respond a:hover {
+    color:#111;
+}
+
+#footer h2.read-more {
+    float:left;
+}
+
+#footer h2.comments {
+    float:right;
+}
+
+.license {
+    position:relative;
+    float:left;
+    width:540px;
+    margin-right:70px;
+}
+
+.attribution {
+    position:relative;
+    float:right;
+    width:250px;
 }

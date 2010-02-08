@@ -28,7 +28,7 @@ get_header(); ?>
 
 <div class="bottom"></div>
 
-<div id="content">
+<div class="content">
 	<div class="wrapper unitx7">
 		
 		<div class="navigation">
@@ -44,7 +44,5 @@ get_header(); ?>
 
 	</div>
 </div>
-
-<div class="top"></div>
 
 <?php get_footer(); ?>
