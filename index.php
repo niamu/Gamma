@@ -55,7 +55,7 @@ get_header(); ?>
 		<?php get_search_form(); ?>
 
 	<?php endif; ?>
-	
+	</div>
 </div>
 
 <?php get_footer(); ?>
