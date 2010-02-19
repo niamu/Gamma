@@ -104,8 +104,6 @@ return;
 		<?php do_action('comment_form', $post->ID); ?>
 
 	</form>
-</div>
-</div>
 
 <?php endif; // If registration required and not logged in ?>
 
