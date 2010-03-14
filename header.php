@@ -88,6 +88,6 @@
 			<span class="next"><?php previous_posts_link('NEXT &rarr;'); ?></span>
 		</p>
 </div>
-<? } ?>
+<?php } ?>
 
 <div class="top"></div>
